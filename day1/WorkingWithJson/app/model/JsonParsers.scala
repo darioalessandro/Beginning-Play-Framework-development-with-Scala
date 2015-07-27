@@ -33,8 +33,6 @@ object JsonParsers {
   val userReadsTolerateEmptyName = new Reads[User] {
     def reads(o:JsValue) : JsResult[User] = {
       o match {
-        case array : JsArray =>
-          JsError("json in an array but should be an object")
         case obj : JsObject =>
           val first = (o \ "first").asOpt[String]
           val last = (o \ "last").asOpt[String]
@@ -52,8 +50,10 @@ object JsonParsers {
 
             case (Some(u), Some(f), Some(l)) =>
               JsSuccess(User(u,f,l))
-
           }
+
+        case other =>
+          JsError(s"json should be an object but it is an ${other.getClass}")
       }
 
     }
