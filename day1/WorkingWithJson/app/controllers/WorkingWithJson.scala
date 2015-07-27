@@ -12,11 +12,12 @@ Unless required by applicable law or agreed to in writing, software distributed 
  under the License.
  */
 
-import model.{User, MockDB}
+import model.{JsonParsers, User, MockDB}
 import play.api.mvc._
 import play.api.libs.json._
 import model.JsonParsers._
-
+import scala.reflect.runtime.universe._
+import scala.reflect._
 import scala.util.{Success, Failure}
 
 class WorkingWithJson extends Controller {
@@ -42,6 +43,11 @@ class WorkingWithJson extends Controller {
       case Failure(error) =>
         BadRequest(error.getMessage)
     }
+  }
+
+  def allNames = Action {
+    val onlyNames = Writes.arrayWrites[User](classTag[User], userWriterWithNameOnly)
+    Ok(Json.toJson(MockDB.users.toArray)(onlyNames))
   }
 
 }

@@ -4,11 +4,13 @@
 
 # Home page
 
-GET         /users                                    controllers.WorkingWithJson.allUsers
+GET         /users               controllers.WorkingWithJson.allUsers
 
-GET         /user/:name                               controllers.WorkingWithJson.getUser(name)
+GET         /user/:name          controllers.WorkingWithJson.getUser(name)
 
-POST        /user                                     controllers.WorkingWithJson.addUser
+POST        /user                controllers.WorkingWithJson.addUser
+
+GET         /allnames            controllers.WorkingWithJson.allNames
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                             controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)

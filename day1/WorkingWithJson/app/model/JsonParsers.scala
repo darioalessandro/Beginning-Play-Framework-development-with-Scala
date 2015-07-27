@@ -18,14 +18,12 @@ import play.api.libs.json.Reads._
 
 object JsonParsers {
 
-  implicit val userFormatter = Json.format[User]
+  implicit val userFormatter = Json.format[User] //Autogenerates Writer and Reader using reflection.
 
-
-  val userWriterWithNoName = new Writes[User] {
+  val userWriterWithNameOnly = new Writes[User] {
     def writes(c: User): JsValue = {
       Json.obj(
-        "first" -> c.first,
-        "last" -> c.last
+        "name" -> c.name
       )
     }
   }
