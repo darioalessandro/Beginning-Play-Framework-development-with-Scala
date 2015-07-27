@@ -18,7 +18,7 @@ import play.api.libs.json.Reads._
 
 object JsonParsers {
 
-  implicit val userFormatter = Json.format[User] //Autogenerates Writer and Reader using reflection.
+  implicit val userFormatter = Json.format[User] //Generates Writer and Reader using reflection.
 
   val userWriterWithNameOnly = new Writes[User] {
     def writes(c: User): JsValue = {
