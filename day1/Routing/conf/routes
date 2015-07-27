@@ -1,0 +1,19 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /sayHi                                    controllers.Routing.sayHi
+
+GET         /echo/lastpartofurl/:lastPart             controllers.Routing.echo(lastPart)
+
+GET         /echo/querystring/rawstring               controllers.Routing.echoQueryString
+
+GET         /echo/querystring/map                     controllers.Routing.echoQueryStringAsMap
+
+GET         /echo/urlpathafterhere/*everything        controllers.Routing.echo(everything)
+
+POST        /echo/upTo10Bytes                         controllers.Routing.upTo10Bytes
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                             controllers.Assets.versioned(path="/public", file: Asset)
