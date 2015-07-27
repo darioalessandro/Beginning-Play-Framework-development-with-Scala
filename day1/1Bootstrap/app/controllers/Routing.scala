@@ -1,9 +1,8 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
 
-class Application extends Controller {
+class Routing extends Controller {
 
   def sayHi = Action {
     Ok("Hi")
@@ -16,7 +15,11 @@ class Application extends Controller {
   //taken from https://www.playframework.com/documentation/2.4.x/ScalaBodyParsers
 
   def echoQueryString = Action { implicit request =>
-    Ok(request.queryString.toString())
+    Ok(request.rawQueryString)
+  }
+
+  def echoQueryStringAsMap = Action { implicit  request =>
+    Ok(request.queryString.toString)
   }
 
   // Accept only 10 Bytes of data.
