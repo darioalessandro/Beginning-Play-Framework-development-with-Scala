@@ -16,20 +16,23 @@ Bibliography:
 
 Richard-Foy, Julien (2014-09-25). Play Framework Essentials (Kindle Locations 246-248). Packt Publishing. Kindle Edition. 
 
-1) Building a Web Service
+1) Day 1: Building a Web Service
 
 1) Bootstrapping a Play project 
-2) Understanding the different pieces of a Play project 
+2) Understanding the different parts of a Play project 
 3) Mapping URLs to your service entry points 
 4) Serving JSON responses and reading and validating JSON requests
 
-2) Persisting data 
 
-3) Testing
 
-4) HTML + Angular * CSS example
 
-5) Packaging and distributing your play application
+2) Day 2: Persisting data 
+
+3) Day 3: Testing
+
+4) Day 4: HTML + Angular * CSS example
+
+5) Day 5: Packaging and distributing your play application
 
 
 
