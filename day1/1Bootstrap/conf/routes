@@ -15,9 +15,11 @@ GET         /echo/urlpathafterhere/*everything        controllers.Routing.echo(e
 
 POST        /echo/upTo10Bytes                         controllers.Routing.upTo10Bytes
 
-GET         /users                                    controllers.ServingJson.allUsers
+GET         /users                                    controllers.WorkingWithJson.allUsers
 
-POST        /user                                     controllers.ServingJson.addUser
+GET         /user/:name                               controllers.WorkingWithJson.getUser(name)
+
+POST        /user                                     controllers.WorkingWithJson.addUser
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                             controllers.Assets.versioned(path="/public", file: Asset)

@@ -11,7 +11,7 @@ import scala.util.{Success, Failure}
  * Created by adminuser on 7/27/15.
  */
 
-class ServingJson extends Controller {
+class WorkingWithJson extends Controller {
 
   def allUsers = Action {
     Ok(Json.toJson(MockDB.users))
@@ -24,7 +24,15 @@ class ServingJson extends Controller {
       case Failure(error) =>
         BadRequest(error.getMessage)
     }
+  }
 
+  def getUser(name : String) = Action {
+    MockDB.getUser(name) match {
+      case Success(user) =>
+        Ok(Json.toJson(user))
+      case Failure(error) =>
+        BadRequest(error.getMessage)
+    }
   }
 
 }

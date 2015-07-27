@@ -26,4 +26,18 @@ object MockDB {
       }
   }
 
+  def getUser(name : String) : Try[User] = {
+    val user = users.find(user => user.name == name)
+
+    user match {
+      case Some(u) =>
+        Success(u)
+
+      case None =>
+        Failure(new Throwable(s"Unable to find user with name $name"))
+
+    }
+
+  }
+
 }
