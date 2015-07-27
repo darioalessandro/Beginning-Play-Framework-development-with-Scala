@@ -18,7 +18,7 @@ Richard-Foy, Julien (2014-09-25). Play Framework Essentials (Kindle Locations 24
 
 1) Day 1: Building a Web Service
 
-	1.1) Bootstrapping a Play project 
+	1.1) Creating a Play project 
 	1.2) Understanding the different parts of a Play project 
 	1.3) Mapping URLs to your service entry points 
 	1.4) Serving JSON responses and reading and validating JSON requests
