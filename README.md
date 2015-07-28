@@ -23,13 +23,21 @@ Richard-Foy, Julien (2014-09-25). Play Framework Essentials (Kindle Locations 24
 	1.3) Mapping URLs to your service entry points 
 	1.4) Serving JSON responses and reading and validating JSON requests
 
-2) Day 2: Persisting data 
+2) Day 2: Persisting data with Anorm
+	3.1) Configuring the data sources
+	3.2) SELECT
+	3.3) INSERT
+	3.4) UPDATE
 
 3) Day 3: Testing
+	3.1) Unit testing with specs2
+	3.2) Running tests in the browser
 
 4) Day 4: HTML + Angular * CSS example
+	4.1) Hello Angular
+	4.2) 8 Puzzle
 
-5) Day 5: Packaging and distributing your play application
+5) Day 5 : Packaging and distributing your play application
 
 
 

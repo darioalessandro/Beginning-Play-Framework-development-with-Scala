@@ -17,7 +17,7 @@ import play.api.mvc._
 class Routing extends Controller {
 
   def sayHi = Action {
-    Ok("Hi")
+    Ok("Hi").withHeaders("key" -> "value", "key2" -> "value", "key3" -> "value")
   }
 
   def echo(payload : String) = Action {

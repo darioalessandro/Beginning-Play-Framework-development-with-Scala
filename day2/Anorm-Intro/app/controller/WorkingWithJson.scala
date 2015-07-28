@@ -1,4 +1,4 @@
-package controllers
+package controller
 
 /*
 Copyright [2015] [Dario A Lencina Talarico]
