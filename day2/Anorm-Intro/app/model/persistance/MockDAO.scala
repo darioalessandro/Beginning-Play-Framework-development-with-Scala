@@ -1,4 +1,4 @@
-package model
+package model.persistance
 
 /*
 Copyright [2015] [Dario A Lencina Talarico]
@@ -12,9 +12,11 @@ Unless required by applicable law or agreed to in writing, software distributed 
  under the License.
  */
 
-import scala.util.{Failure, Try, Success}
+import model.User
 
-object MockDB {
+import scala.util.{Failure, Success, Try}
+
+object MockDAO extends DAO {
 
   private var _users : Map[String, User] = Map(
     "tania" -> User("tania", "Tania", "Curiel"),

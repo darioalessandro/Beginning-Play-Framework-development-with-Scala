@@ -1,4 +1,4 @@
-package controller
+package controllers
 
 /*
 Copyright [2015] [Dario A Lencina Talarico]
@@ -12,7 +12,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
  under the License.
  */
 
-import model.{User, MockDB}
+import model.User
+import model.persistance.{AnormDAO, DAO, MockDAO}
 import play.api.libs.json._
 import play.api.mvc._
 import scala.reflect._
@@ -21,13 +22,15 @@ import model.JsonParsers._
 
 class WorkingWithJson extends Controller {
 
+  val DAO : DAO = AnormDAO
+
   def allUsers = Action {
-    Ok(Json.toJson(MockDB.users))
+    Ok(Json.toJson(DAO.users))
   }
 
   //def addUser = Action(parse.json[User](userReadsTolerateEmptyName)) { implicit request =>
   def addUser = Action(parse.json[User]) { implicit request =>
-    MockDB.addUser(request.body) match {
+    DAO.addUser(request.body) match {
       case Success(user) =>
         Ok(Json.toJson(user))
       case Failure(error) =>
@@ -36,7 +39,7 @@ class WorkingWithJson extends Controller {
   }
 
   def getUser(name : String) = Action {
-    MockDB.getUser(name) match {
+    DAO.getUser(name) match {
       case Success(user) =>
         Ok(Json.toJson(user))
       case Failure(error) =>
@@ -45,7 +48,7 @@ class WorkingWithJson extends Controller {
   }
 
   def allNames = Action {
-    val arrayOfNames = MockDB.users.keySet.toArray
+    val arrayOfNames = DAO.users.keySet.toArray
     Ok(Json.toJson(arrayOfNames))
   }
 
