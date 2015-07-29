@@ -28,7 +28,6 @@ Richard-Foy, Julien (2014-09-25). Play Framework Essentials (Kindle Locations 24
 	2.1) Configuring the data sources
 	2.2) SELECT
 	2.3) INSERT
-	2.4) UPDATE
 
 3) Day 3: Testing
 
