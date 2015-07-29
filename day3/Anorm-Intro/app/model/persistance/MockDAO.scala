@@ -1,4 +1,4 @@
-package model
+package model.persistance
 
 /*
 Copyright [2015] [Dario A Lencina Talarico]
@@ -12,11 +12,13 @@ Unless required by applicable law or agreed to in writing, software distributed 
  under the License.
  */
 
-import scala.util.{Failure, Try, Success}
+import model.User
 
-object MockDB {
+import scala.util.{Failure, Success, Try}
 
-  private var _users : Map[String, User]= Map(
+object MockDAO extends DAO {
+
+  private var _users : Map[String, User] = Map(
     "tania" -> User("tania", "Tania", "Curiel"),
     "joe" -> User("joe", "Joseph", "Guido"),
     "aarthimai" -> User("aarthimai", "Aarthimai", "Krishnamoorthy"),
@@ -28,18 +30,16 @@ object MockDB {
   def addUser(user : User) : Try[User] = {
       val currentUsers = users
 
-      currentUsers.get(user.name) match {
-        case Some(u) =>
-          Failure(new Throwable(s"user ${user.name} already exists"))
-
-        case None =>
-          _users = _users + (user.name -> user)
-          Success(user)
+      if(currentUsers.get(user.name).nonEmpty){
+        Failure(new Throwable(s"user ${user.name} already exists"))
+      } else {
+        _users = _users + (user.name -> user)
+        Success(user)
       }
   }
 
   def getUser(name : String) : Try[User] = {
-    val user : Option[User] = users.get(name)
+    val user = users.get(name)
 
     user match {
       case Some(u) =>
