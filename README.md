@@ -24,16 +24,19 @@ Richard-Foy, Julien (2014-09-25). Play Framework Essentials (Kindle Locations 24
 	1.4) Serving JSON responses and reading and validating JSON requests
 
 2) Day 2: Persisting data with Anorm
-	3.1) Configuring the data sources
-	3.2) SELECT
-	3.3) INSERT
-	3.4) UPDATE
+
+	2.1) Configuring the data sources
+	2.2) SELECT
+	2.3) INSERT
+	2.4) UPDATE
 
 3) Day 3: Testing
-	3.1) Unit testing with specs2
-	3.2) Running tests in the browser
+
+	3.1) Unit testing with specs2 
+
 
 4) Day 4: HTML + Angular * CSS example
+
 	4.1) Hello Angular
 	4.2) 8 Puzzle
 
