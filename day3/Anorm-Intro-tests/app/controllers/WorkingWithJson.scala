@@ -30,12 +30,13 @@ class WorkingWithJson extends Controller {
 
   //def addUser = Action(parse.json[User](userReadsTolerateEmptyName)) { implicit request =>
   def addUser = Action(parse.json[User]) { implicit request =>
-    DAO.addUser(request.body) match {
-      case Success(user) =>
-        Ok(Json.toJson(user))
-      case Failure(error) =>
-        BadRequest(error.getMessage)
-    }
+
+      DAO.addUser(request.body) match {
+        case Success(user) =>
+          Ok(Json.toJson(user))
+        case Failure(error) =>
+          BadRequest(error.getMessage)
+      }
   }
 
   def getUser(name : String) = Action {

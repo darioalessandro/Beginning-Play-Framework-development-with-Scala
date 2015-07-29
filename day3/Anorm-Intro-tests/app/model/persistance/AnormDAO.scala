@@ -33,19 +33,25 @@ object AnormDAO extends DAO {
   }
 
   def addUser(user : User) : Try[User] = {
-    val success = !DB.withConnection("users") { implicit connection =>
-      SQL(
-        """insert into users set name = {name}, first = {first}, last = {last} """
-      ).on(
-          'name -> user.name,
-          'first -> user.first,
-          'last -> user.last
-        ).execute()
+    try {
+      val success = !DB.withConnection("users") { implicit connection =>
+        SQL(
+          """insert into users set name = {name}, first = {first}, last = {last} """
+        ).on(
+            'name -> user.name,
+            'first -> user.first,
+            'last -> user.last
+          ).execute()
+      }
+      if (success)
+        Success(user) //withResult
+      else
+        Failure(new Throwable(s"unable to insert user $user"))
+
+    }catch {
+      case e : Exception =>
+        Failure(e)
     }
-    if(success)
-      Success(user) //withResult
-    else
-      Failure(new Throwable(s"unable to insert user $user"))
   }
 
   def getUser(name : String) : Try[User] = {
