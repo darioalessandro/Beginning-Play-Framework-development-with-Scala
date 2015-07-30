@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+POST        /shoppingcart/addItem          controllers.ShoppingCart.addItem
+GET        /shoppingcart/deleteItem        controllers.ShoppingCart.deleteItem
+GET        /shoppingcart/checkout          controllers.ShoppingCart.checkout
+GET        /shoppingcart/listItem          controllers.ShoppingCart.listItems
+GET        /inventory/inspectItem          controllers.Inventory.inspectItem
+GET         /inventory/searchItems/:item   controllers.Inventory.searchItems(item)
+
+# Map static resources from the /public folder to the /assets URL path
+GET        /assets/*file                   controllers.Assets.versioned(path="/public", file: Asset)
+
